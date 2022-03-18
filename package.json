@@ -1,0 +1,10 @@
+{
+  "name": "node-mysql-todo",
+  "version": "0.0.0",
+  "description": "Simple todo list using mysql and express",
+  "main": "index.js",
+  "repository": "https://github.com/antoniohauren/node-mysql-todo.git",
+  "author": "Antonio Hauren <antoniohauren@gmail.com>",
+  "license": "GNU Affero GPL3",
+  "private": true
+}
