@@ -8,7 +8,7 @@ const conn = mysql.createConnection({
 })
 conn.connect((err) => {
   if (err) throw err
-  conn.query('DROP DATABASE todos', (err) => { if (err) throw err })
+  conn.query('DROP DATABASE IF EXISTS todos', (err) => { if (err) throw err })
   conn.query('CREATE DATABASE todos', (err, result) => {
     if (err) throw err
     console.log('Database Created')
