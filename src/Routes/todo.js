@@ -10,6 +10,9 @@ const getOne = async (req, res) => {
 
 const insertOne = async (req, res) => {
   const result = await todoController.insertOne(req.body)
+  if (result.error) {
+    return res.status(400).send(result)
+  }
   return res.status(201).send(result)
 }
 
