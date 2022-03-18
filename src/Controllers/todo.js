@@ -1,7 +1,11 @@
 const todoService = require('../Services/todo')
 
-const getAll = async () => {
+const getAll = () => {
   return todoService.getAll()
 }
 
-module.exports = { getAll }
+const getOne = (id) => {
+  return todoService.getOne(id)
+}
+
+module.exports = { getAll, getOne }
