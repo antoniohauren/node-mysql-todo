@@ -10,4 +10,15 @@ const getOne = async (id) => {
   }
   return result.pop()
 }
-module.exports = { getAll, getOne }
+
+const insertOne = async (body) => {
+  const { name } = body
+  if (!name) {
+    return { error: 'missing param' }
+  }
+  await todoRepository.insertOne(name)
+
+  return { message: 'inserted' }
+}
+
+module.exports = { getAll, getOne, insertOne }

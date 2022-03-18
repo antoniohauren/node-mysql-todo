@@ -8,4 +8,11 @@ const getOne = (id) => {
   return todoService.getOne(id)
 }
 
-module.exports = { getAll, getOne }
+const insertOne = (body) => {
+  if (!body) {
+    return { error: 'invalid body' }
+  }
+  return todoService.insertOne(body)
+}
+
+module.exports = { getAll, getOne, insertOne }

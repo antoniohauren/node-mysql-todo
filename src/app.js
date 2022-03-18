@@ -6,9 +6,9 @@ const jsonParser = require('./Middlewares/json-parser')
 const server = express()
 const routes = require('./Routes')
 
-server.use(routes)
 server.use(cors)
 server.use(jsonParser)
 server.use(contentType)
+server.use(routes)
 
 module.exports = server
