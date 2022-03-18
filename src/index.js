@@ -1,8 +1,4 @@
-const express = require('express')
-const app = express()
+const app = require('./app')
+const { port } = require('./Utils/config')
 
-app.get('/', (req, res) => {
-  return res.send({ ok: true })
-})
-
-app.listen(3000, () => console.log("running on port 3000"))
+app.listen(port, () => console.log(`running on port ${port}`))
