@@ -32,4 +32,12 @@ const updateOne = async (id, name) => {
   return rows
 }
 
-module.exports = { getAll, getOne, insertOne, updateOne }
+const deleteOne = async (id) => {
+  const conn = await connect()
+  const [rows] = await conn.query(`
+    DELETE FROM todos WHERE id = ${id}
+  `)
+  return rows
+}
+
+module.exports = { getAll, getOne, insertOne, updateOne, deleteOne }

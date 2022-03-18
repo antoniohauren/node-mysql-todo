@@ -21,4 +21,9 @@ const updateOne = async (req, res) => {
   return res.status(201).send(result)
 }
 
-module.exports = { getAll, getOne, insertOne, updateOne }
+const deleteOne = async (req, res) => {
+  const result = await todoController.deleteOne(req.params.id)
+  res.send(result)
+}
+
+module.exports = { getAll, getOne, insertOne, updateOne, deleteOne }

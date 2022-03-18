@@ -6,7 +6,6 @@ const getAll = () => {
 
 const getOne = async (id) => {
   const result = await todoService.getOne(id)
-  console.log(result)
   if (!result) {
     return { error: 'todo not found' }
   }
@@ -27,4 +26,8 @@ const updateOne = (id, body) => {
   return todoService.updateOne(id, body)
 }
 
-module.exports = { getAll, getOne, insertOne, updateOne }
+const deleteOne = async (id) => {
+  return todoService.deleteOne(id)
+}
+
+module.exports = { getAll, getOne, insertOne, updateOne, deleteOne }

@@ -34,4 +34,13 @@ const updateOne = async (id, body) => {
   return { message: 'updated' }
 }
 
-module.exports = { getAll, getOne, insertOne, updateOne }
+const deleteOne = async (id) => {
+  const result = await getOne(id)
+  if (!result) {
+    return { error: 'todo not found' }
+  }
+  await todoRepository.deleteOne(id)
+  return { message: 'deleted' }
+}
+
+module.exports = { getAll, getOne, insertOne, updateOne, deleteOne }
