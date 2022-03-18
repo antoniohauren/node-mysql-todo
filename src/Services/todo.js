@@ -6,7 +6,7 @@ const getAll = async () => {
 const getOne = async (id) => {
   const result = await todoRepository.getOne(id)
   if (!result.length) {
-    return { error: 'todo not found' }
+    return null
   }
   return result.pop()
 }
@@ -21,4 +21,17 @@ const insertOne = async (body) => {
   return { message: 'inserted' }
 }
 
-module.exports = { getAll, getOne, insertOne }
+const updateOne = async (id, body) => {
+  const result = await getOne(id)
+  const { name } = body
+  if (!result) {
+    return { error: 'todo not found' }
+  }
+  if (!name) {
+    return { error: 'missing param' }
+  }
+  await todoRepository.updateOne(id, name)
+  return { message: 'updated' }
+}
+
+module.exports = { getAll, getOne, insertOne, updateOne }

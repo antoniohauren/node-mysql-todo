@@ -24,4 +24,12 @@ const insertOne = async (name) => {
   return rows
 }
 
-module.exports = { getAll, getOne, insertOne }
+const updateOne = async (id, name) => {
+  const conn = await connect()
+  const [rows] = await conn.query(`
+    UPDATE todos SET name = "${name}" WHERE id = ${id}
+  `)
+  return rows
+}
+
+module.exports = { getAll, getOne, insertOne, updateOne }
