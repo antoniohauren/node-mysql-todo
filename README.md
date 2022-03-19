@@ -36,3 +36,12 @@ export DB_HOST=localhost
 export DB_USER=root
 export DB_PASS=root
 ```
+### then just start the project
+```
+npm run start
+``
+or
+```
+yarn start
+```
+
